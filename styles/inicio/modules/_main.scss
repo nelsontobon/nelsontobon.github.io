@@ -1,0 +1,256 @@
+.principal{
+
+    .titulo{
+        width: 76.5%;
+        margin: 0 auto;
+        @include modooscuro;
+
+        h1{
+            @include Montserrat-bold(25px,$text_color,33px);
+            .span-gifos{
+                color: $text_color_secondary;
+            }
+
+            body.dark &{
+                color: white;
+            }
+
+        }
+        
+    }
+
+    .busqueda{
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        @include modooscuro;
+
+        .bus-img{
+            width: calc(198px + 14%);
+            img{
+                width: 100%;
+            }
+        }
+
+        
+
+        .bus-section{   
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            width: calc(259px + 25% ); 
+            min-height: 50px;
+            border: 1px solid $color;
+            border-radius:27px;
+
+            body.dark &{
+                &{
+                    border: 1px solid white;
+                }
+
+                .busqueda{
+                    background-color: $bg_color_nocturno;
+                    color:  #9CAFC3;
+                }
+
+                .icon{
+                    color: white;
+                }
+            }
+
+            .bus-barra{
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: center;
+                align-items: center;
+                width: 100%; 
+                
+    
+                .busqueda{
+                    width: 65.7%;
+                    height: 45%;
+                    margin: 0;
+                    border: none;
+                    @include Roboto-regular(16px,black,20px);
+                    text-align: left;
+                    
+                    &:focus{
+                        outline: 0;
+                    }
+                }
+
+                .icon{
+                    color: $color;
+                    font-size: 20px;
+                    margin-left: 7.3%;
+                    cursor: pointer;
+
+                    #bus-icon-busq{
+                        display: block;
+                    }
+
+                    #bus-icon-close{
+                        display: none;
+                    }
+                }
+
+            }
+
+            .sugerencias{
+                display: none;
+                margin: 10px 0;
+                width: calc(65.7% + 44px);
+                border-top: 1px solid #9CAFC3;
+
+                .sugerencias-lista{
+                    list-style: none;
+                    width: 100%;
+
+                    li{
+                        @include Roboto-regular(16px,#9CAFC3,30px);
+                        text-align: left;
+                        width: 100%;
+                        margin-top: 2px;
+                        cursor: pointer;
+
+                        &:hover{
+                            background-color: #EAF5FF;
+                        }
+
+                        body.dark &{
+                            &:hover{
+                                background-color: #222326;
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+        
+
+    }
+
+    .trending{
+        width: 60%;
+        margin: 3.7vh auto 0;
+        @include modooscuro;
+
+        .trend-titulo{
+            @include Montserrat-bold(16px,$text_color,25px);
+        }
+        .trend-text{
+            @include Montserrat-medium(14px,$text_color,25px);
+        }
+
+        body.dark &{
+            .trend-titulo, .trend-text{
+                color: white;
+            }
+        }
+    }
+
+    .bus-resultado{
+        display: none;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 10px;
+
+        @include modooscuro;
+
+        .busq-titulo{
+            text-transform: capitalize;
+            margin-top: 79px ;
+            margin-bottom: 38px;
+            @include Montserrat-bold(25px,$color,40px)
+        }
+
+        .bus-contenido{
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+            justify-content: space-evenly;
+
+            @include modooscuro;
+            @include GifItem(156px,120px,240px,190px,260px,200px);
+        }
+        
+        .bus-ver{
+            margin-top: 68px;
+            button{
+                width: 127px;
+                height: 50px;
+                background-color: transparent;
+                border: 1px solid $color;
+                border-radius: 25px;
+                @include Montserrat-bold(13px,$color,0px);
+                cursor: pointer;
+
+                &:hover{
+                    background-color: $color;
+                    color: white;
+                    border-color: white;
+                }
+
+                body.dark &{
+                    border: 1px solid white;
+                    color: white;
+
+                    &:hover{
+                        background-color: white;
+                        color: $bg_color_nocturno;
+                    }
+                }
+            }
+            
+        }
+        .sinResultados{
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            p{
+                @include Montserrat-bold(22px,#50E3C2,25px);  
+            }
+        }
+        
+    }
+}
+
+@media (min-width: 768px){
+    .principal{
+
+        .titulo{
+            width: 580px;
+            margin-top: 76px;   
+
+            h1{
+                @include Montserrat-bold(35px,$text_color,50px);
+            }
+            
+        }
+
+        .trending{
+            width: 60%;
+            margin: 73px auto 0;
+    
+            .trend-titulo{
+                @include Montserrat-bold(18px,$text_color,25px);
+            }
+            .trend-text{
+                @include Montserrat-medium(16px,$text_color,25px);
+            }
+        }
+
+        .bus-resultado{
+            .busq-titulo{
+                margin-top: 79px ;
+                margin-bottom: 59px;
+                @include Montserrat-bold(35px,$color,30px)
+            }
+        }
+    }
+}
